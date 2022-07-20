@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication2.Models
 {
-    public partial class System
+    public partial class VGSystem
     {
         public int Id { get; set; }
         [Required]
