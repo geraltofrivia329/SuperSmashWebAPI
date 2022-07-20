@@ -18,7 +18,7 @@ namespace WebApplication2.Models
 
         public virtual DbSet<Character> Characters { get; set; } = null!;
         public virtual DbSet<Stage> Stages { get; set; } = null!;
-        public virtual DbSet<System> Systems { get; set; } = null!;
+        public virtual DbSet<VGSystem> VGSystems { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -47,7 +47,7 @@ namespace WebApplication2.Models
                     .HasColumnName("Stage_Name");
             });
 
-            modelBuilder.Entity<System>(entity =>
+            modelBuilder.Entity<VGSystem>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
