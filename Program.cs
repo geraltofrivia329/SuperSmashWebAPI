@@ -1,7 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using Microsoft.AspNetCore.StaticFiles;
+using Serilog;
+
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 
