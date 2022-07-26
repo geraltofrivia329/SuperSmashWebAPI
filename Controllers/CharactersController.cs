@@ -17,11 +17,23 @@ namespace WebApplication2.Controllers
         public async Task <IEnumerable<Character>> Get()
         
             => await _context.Characters.ToListAsync();
-        
-        
-            
-                
-                
-        
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCharacter(int id)
+        { 
+         var CharDelete = await _context.Characters.FindAsync(id);
+            if (CharDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.Characters.Remove(CharDelete); 
+            await _context.SaveChangesAsync();  
+            return NoContent();
+        }
+
+
+
+
     }
 }
