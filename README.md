@@ -1,6 +1,6 @@
 # SuperSmashWebAPI
-SuperSmashWebAPI reading from SuperSmashDB
-                                            Creating a WEB API and connecting to SuperSmash DB
+Created SuperSmashDB
+SuperSmashWebAPI reading from SuperSmashDB using Swagger
 
-Use the WeatherControllers template and Swagger to create and test a WEB API 
+Used the WeatherControllers template and Swagger to create and test a WEB API 
 Created full database called SuperSmashDB
