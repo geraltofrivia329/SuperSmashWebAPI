@@ -20,6 +20,20 @@ namespace WebApplication2.Controllers
             public async Task<IEnumerable<VGSystem>> Get()
 
                 => await _context.VGSystems.ToListAsync();
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVGSystem(int id)
+        {
+            var SystemDelete = await _context.VGSystems.FindAsync(id);
+            if (SystemDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.VGSystems.Remove(SystemDelete);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
+    }
 }
 

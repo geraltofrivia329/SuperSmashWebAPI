@@ -21,5 +21,19 @@ namespace WebApplication2.Controllers
             public async Task<IEnumerable<Stage>> Get()
 
                 => await _context.Stages.ToListAsync();
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteStage(int id)
+        {
+            var StageDelete = await _context.Stages.FindAsync(id);
+            if (StageDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.Stages.Remove(StageDelete);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
+    }
 }

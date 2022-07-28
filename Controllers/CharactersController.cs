@@ -32,7 +32,19 @@ namespace WebApplication2.Controllers
             return NoContent();
         }
 
+        [HttpPost("{name}")]
+        public async Task<IActionResult> AddCharacter(string name)
+        {
+            var CharAdd = await _context.Characters.FindAsync(name);
+            if (CharAdd == null)
+            {
+                return NotFound();
+            }
 
+            _context.Characters.Add(CharAdd);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
 
 
     }
